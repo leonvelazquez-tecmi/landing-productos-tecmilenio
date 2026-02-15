@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* Tecmilenio brand */
+  --brand: #00534C;
+  --uni: #78D64B;
+  --prepa: #F68D2E;
+  --skilling: #1EC6BD;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-uni: var(--uni);
+  --color-prepa: var(--prepa);
+  --color-skilling: var(--skilling);
+  --font-sans: var(--font-corbel), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Retícula: contenedores 12/6/3 columnas */
+.grid-container {
+  @apply grid grid-cols-3 md:grid-cols-6 lg:grid-cols-12 gap-4 md:gap-6;
+}
+
+/* Headings: Montserrat con letter-spacing */
+.font-display {
+  font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.05em;
+}
