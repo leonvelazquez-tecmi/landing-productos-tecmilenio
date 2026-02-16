@@ -1,4 +1,4 @@
-import type { SolucionOrganizacion } from "./tipos";
+import type { SolucionOrganizacion, CasoUso } from "./tipos";
 
 export const solucionesOrganizaciones: SolucionOrganizacion[] = [
   {
@@ -52,5 +52,33 @@ export const solucionesOrganizaciones: SolucionOrganizacion[] = [
     tipoOrganizacion: "Directivos, mandos medios y áreas de personas.",
     formato: "Connect Online, in-company",
     resultadosIndicadores: ["Factor Wellbeing", "Liderazgo positivo medible"],
+  },
+];
+
+export const casosUso: CasoUso[] = [
+  {
+    id: "semillero-talento-tech",
+    titulo: "Semillero de Talento Tech",
+    descripcion:
+      "Empresa manufacturera necesitaba técnicos especializados en automatización industrial y programación de PLCs para modernizar sus líneas de producción.",
+    resultado: "40 contrataciones en 3 meses",
+    empresa: "Empresa manufacturera",
+    industria: "Manufactura",
+  },
+  {
+    id: "upskilling-liderazgo",
+    titulo: "Upskilling de Liderazgo",
+    descripcion:
+      "Organización de servicios con alta rotación en mandos medios implementó programa de liderazgo positivo y gestión del bienestar para mejorar retención.",
+    resultado: "-15% rotación de personal",
+    industria: "Servicios",
+  },
+  {
+    id: "certificaciones-digitales",
+    titulo: "Certificaciones Digitales para Equipos",
+    descripcion:
+      "Empresa de tecnología necesitaba actualizar habilidades de su equipo en herramientas cloud y DevOps mediante certificaciones FIT apilables.",
+    resultado: "85% de completación de rutas en 6 meses",
+    industria: "Tecnología",
   },
 ];

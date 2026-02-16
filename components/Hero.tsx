@@ -1,13 +1,19 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import type { MetricaHero } from "@/data/tipos";
 import { metricasHero } from "@/data/transversales";
 
 const titulo =
-  "Programas diseñados para que tu título, tu trabajo y tu bienestar estén integrados desde el día uno.";
+  "Tu título universitario, acelerado por tu experiencia real.";
 
-const subtitulo = [
-  "Programas MAPS: modulares, apilables, con certificados e insignias digitales.",
-  "Experiencias FIT: integradas al trabajo; 9 de cada 10 se gradúan con empleo.",
-  "IPBI / Factor Wellbeing: propósito de vida y bienestar integral medibles, no solo palabras.",
+const subtitulo =
+  "El único ecosistema donde cada certificación industrial cuenta como créditos para tu maestría.";
+
+const audienceTabs = [
+  { id: "crecimiento", label: "Para Mí (Crecimiento)", target: "#ecosistema" },
+  { id: "empresa", label: "Para Mi Empresa", target: "#organizaciones" },
+  { id: "estudiante", label: "Soy Estudiante", target: "#catalogo-preparatoria" },
 ];
 
 const ctas = [
@@ -29,6 +35,39 @@ function Metrica({ valor, descripcion }: MetricaHero) {
 }
 
 export default function Hero() {
+  const [activeTab, setActiveTab] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const ecosistema = document.getElementById("ecosistema");
+      const organizaciones = document.getElementById("organizaciones");
+      const catalogo = document.getElementById("catalogo-preparatoria");
+
+      const scrollPosition = window.scrollY + 100;
+
+      if (organizaciones && scrollPosition >= organizaciones.offsetTop) {
+        setActiveTab("empresa");
+      } else if (ecosistema && scrollPosition >= ecosistema.offsetTop) {
+        setActiveTab("crecimiento");
+      } else if (catalogo && scrollPosition >= catalogo.offsetTop) {
+        setActiveTab("estudiante");
+      } else {
+        setActiveTab(null);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleTabClick = (target: string) => {
+    const element = document.querySelector(target);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -41,11 +80,28 @@ export default function Hero() {
         >
           {titulo}
         </h1>
-        <ul className="mt-6 list-none space-y-2 text-gray-700">
-          {subtitulo.map((line, i) => (
-            <li key={i}>{line}</li>
+        <p className="mt-6 text-lg text-gray-700 md:text-xl">{subtitulo}</p>
+        
+        {/* Audience Navigation Tabs */}
+        <div className="mt-8 flex flex-wrap gap-3" role="tablist" aria-label="Navegación por audiencia">
+          {audienceTabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => handleTabClick(tab.target)}
+              role="tab"
+              aria-selected={activeTab === tab.id}
+              aria-controls={tab.target.slice(1)}
+              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-brand/50 ${
+                activeTab === tab.id
+                  ? "bg-brand text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+            >
+              {tab.label}
+            </button>
           ))}
-        </ul>
+        </div>
+
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
           {ctas.map(({ href, label }) => (
             <a

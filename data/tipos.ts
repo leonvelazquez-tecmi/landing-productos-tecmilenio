@@ -68,6 +68,15 @@ export interface SolucionOrganizacion {
   resultadosIndicadores?: string[];
 }
 
+export interface CasoUso {
+  id: string;
+  titulo: string;
+  descripcion: string;
+  resultado: string;
+  empresa?: string;
+  industria?: string;
+}
+
 export interface BloqueTransversal {
   id: string;
   titulo: string;

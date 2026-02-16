@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import EcosystemFlow from "@/components/EcosystemFlow";
 import GroupContext from "@/components/GroupContext";
 import FamiliasSection from "@/components/FamiliasSection";
 import CatalogoSection from "@/components/CatalogoSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <EcosystemFlow />
         <GroupContext />
         <FamiliasSection />
         <CatalogoSection />

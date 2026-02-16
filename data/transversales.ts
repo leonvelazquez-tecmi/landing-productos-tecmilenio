@@ -47,6 +47,7 @@ export const bloquesTransversales: BloqueTransversal[] = [
       "El Instituto de Bienestar e Inteligencia Positiva (IPBI) diseña y opera programas de bienestar con base en psicología positiva (PERMA) y evidencia aplicada.",
       "Para personas: materias obligatorias de bienestar, certificaciones en psicología positiva, programa Vivir a Consciencia, liderazgo interior.",
       "Para organizaciones: Organizaciones Positivas, liderazgo positivo, diagnósticos de bienestar, universidades corporativas con bienestar integrado.",
+      "Evidencia científica: Programas basados en el modelo PERMA (Positive Emotion, Engagement, Relationships, Meaning, Accomplishment) del Instituto de Ciencias de la Felicidad, validados para incrementar resiliencia y reducir burnout en entornos profesionales.",
     ],
   },
   {
